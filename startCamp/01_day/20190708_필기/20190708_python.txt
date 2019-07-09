@@ -1,0 +1,35 @@
+python
+
+
+import webbrowser
+
+webbrowser.open
+webbrowser.open_new
+webbrowser.open_new_tab
+
+------------------------------------------------------------------------
+
+requests --> 3rd party 
+
+그냥 import requests하면 안뜸(따로 다운로드 받아야함)
+
+git bash에서 아래처럼 명령어적어서 다운받기(두개 다)
+pip install requests
+pip install bs4
+------------------------------------------------------------------------
+
+**구글에 python키워드로 검색한 결과 url
+
+https://www.google.co.kr/search?source=hp&ei=z_kiXYqSKa-mmAX7loXAAw&q=python&oq=python&gs_l=psy-ab.3..0l10.10030.10620..10806...0.0..0.98.555.6......0....1..gws-wiz.....0..0i131.qBiZGQ8Y29Q
+
+q와 oq라는 변수에 python이 담겨있음
+
+http://www.google.co.kr/search?q=python --> 이렇게 줄여서 들어가도 나옴( q 가 query )
+
+python자리에 원하는 키워드 넣으면 됨
+
+-
+for idol in idols:
+    webbrowser.open(f'http://www.google.com/search?q={idol}') 
+
+이렇게 앞에 f써주면 ''내에 변수 사용가능 

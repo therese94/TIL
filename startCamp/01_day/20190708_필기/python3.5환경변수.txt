@@ -1,0 +1,4 @@
+pyhon3.5 환경변수
+
+C:\Program Files\Python35\Scripts\
+C:\Program Files\Python35\
