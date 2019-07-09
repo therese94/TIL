@@ -14,7 +14,7 @@ git을 사용할 경우 여러번 수정된 파일에서 뭐가 바뀌었는지 
 
 <u>**2. GIT 작업 흐름**</u>
 
-add				커밋할 목록에 추가
+add				커밋할 목록에 <u>추가</u>
 
 commit		커밋(create a sanpshot)만들기
 
@@ -62,17 +62,23 @@ host =github.com
 
 (1) git 계정 정보 등록 --> 아이디, 이메일
 
-​	$ git config --global user.name "therese94"
+```
+$ git config --global user.name "therese94"
 
-​	$ git config --global user.email "theresej91@gmail.com"
+$ git config --global user.email "theresej91@gmail.com"
 
-​	$ git config --global --list	(이걸로 확인)
+$ git config --global --list	(이걸로 확인)
+```
+
+
 
 (2)  C, D드라이브가 아닌 지정 폴더(내가 원하는 폴더)로 들어간 후 (cd)
 
-​	$ git init 
+```
+$ git init 	#저장소를 완전히 새로 만드는 것
+```
 
-후 확인 --> 파란색으로 (master) 나오면 된다
+후 확인 --> 파란색으로 (master) 나오면 된다 = git으로 관리가 되고있다는 뜻
 
 
 
@@ -84,11 +90,81 @@ host =github.com
 
 ~/TIL/startCamp (master) 상태에서
 
+```
 $ git add 01_day/
 
 $ git status
 
+$ git commit -m "startCamp Day02"	#메시지 남기는 작업
+
 $ git log
+```
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+여기까지 하면 어디로 push 할지는 지정해주지 않은 상태
+
+이제부터 원격 저장소를 추가하고 지정해줘야함
+
+
+
+이때 내 github repositories 들어가서 TIL --> http의 주소 복사
+
+
+
+```
+$ git remote -v		#원격 저장소를 다루는 키워드
+
+$ git remote add origin https://github.com/therese94/TIL.git
+
+$ git remote -v		#다시 확인하면 origin에 저장된 내역 보임 (fetch),(push)
+
+$ git push origin master	#이거 치면 로그인창 뜸 --> github 계정으로 로그인
+```
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+github들어가서 해당 폴더 내역보면 commit되어있음
+
+
+
+github내에서 수정도 가능하고 수정후 commit버튼 누르면 바로 반영됨
+
+ (remote로만 반영, local로는 따로 가져와야함)
+
+
+
+```
+$ git pull origin master 	#맨 마지막 줄에 remote상에서 변경한 내용 나옴
+```
+
+
+
+### **push하기 전에는 pull을 해야하는지 체크해야함**
+
+### **(충돌나지 않도록 유의)**
+
+$ git log로 체크해보면 됨
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+집에서 github상의 내용 다운받을때
+
+
+
+github --> clone or download(여기서 주소 복사)
+
+
+
+
+
+
+
+
 
 ​	
 
