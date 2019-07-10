@@ -91,3 +91,12 @@ url 에서 variable을 받을 수 있음(기본적으로 str타입으로 받음)
 
 벗어나기 --> esc 
 
+
+
+**gitignore 생성 팁
+
+https://www.gitignore.io/ 
+
+들어가면 편하게 만들 수 있음
+
+--> 메인 조건창에 flask, windows, python, visual studio code 등 입력하고 들어가서 전체 복사
