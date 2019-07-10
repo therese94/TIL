@@ -1,0 +1,17 @@
+    /* 요소선택자 (type) */
+    h2 {
+        color: goldenrod;
+    }
+
+    /* 클래스 선택자 (class) */
+    #description {
+        background-color: aqua;
+    }
+
+    li.list-item{
+        font-size: 20px; 
+    }
+
+    ul li{
+        background-color: bisque;
+    }
