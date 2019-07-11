@@ -2,9 +2,9 @@
 
 (0) vs code 왼쪽 아이콘 --> 검색 --> live server에서 install하기 / jinja2 template language..? 찾아보기(끝부분에 필기)
 
+**기본 팁 --> visual studio code 의 왼쪽 위에서 세번째 아이콘 : 여기서 add, commit 다 가능
+
 (1) 구글에서 검색해서 페이지 들어가기 http://flask.pocoo.org/
-
-
 
 (2) git bash에 
 
@@ -165,3 +165,40 @@ example 2
 **주의할점 :  {% %}는 주석 안에 있어도 해석됨(굳이 써야하면 밑처럼 쓰기)
 
 <!-- {# #} -->
+
+
+
+
+
+--------------------------------------------------------------------------------
+
+### **<u>BOOTSTRAP</u>**
+
+부트스트랩으로 배포하기
+
+
+
+(0) 여기로 들어가기 https://startbootstrap.com/themes/
+
+(1) 원하는 테마 골라서 free download --> 다운후 압축풀기
+
+(2) ~ : home 경로로 가져다 놓기, 파일 이름 바꾸기
+
+(3) 파일 내부 들어가서 우클릭 --> Git Bash Here
+
+(4) ls -l  입력해서 리스트 확인
+
+(5) $ git init 새로 해서 경로 추가 해주기, git status(확인용), git add . (전체 애드), git commit -m "메세지" (커밋)
+
+(6) 현 단계에서는 git push origin master 하면 안됨
+
+(7) 깃허브에서 주소 복사해와서 등록해야함
+
+```
+$ git remote add origin https://github.com/therese94/therese94.github.io.git
+```
+
+(8) 그 후에 업로드 --> git push origin master
+
+(9) github상에서 주소 복사해서 들어가면 내 홈페이지로 쓸 수 있음			**therese94.github.io** 
+
