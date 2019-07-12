@@ -79,51 +79,63 @@ def lotto_input():
 
 @app.route('/lotto_result')
 def lotto_result():
+    # 사용자 입력 값 받기
     lotto_round = request.args.get('round')
     lotto_numbers = request.args.get('numbers').split()
 
+    ## 사용자가 보낸 인풋값은 믿을 수 없기때문에 lotto_numbers에 들어온 요소 개수 검사 해야함
+    
+
+
+    # 로또 실제 당첨번호 확인
     url = f'https://dhlottery.co.kr/common.do?method=getLottoNumber&drwNo={lotto_round}'
     response = requests.get(url)        #Json 타입(개발자가 특정 정보만 보고싶을때)으로 받게됨 <==> 사용자가 보기 편한건 html   ---?? 질문하기
     lotto_info = response.json()        #Json 타입의 파일을 python dictionary로 parsing해줘
     print(lotto_info)        
 
     ans_list = []
+    ans_num = 0
 
     for i in range(1,7):
-        ans_list.append(str(lotto_info[f'drwtNo{i}']))
+        ans_list.append(str(lotto_info[f'drwtNo{i}']))              # 비교시 타입이 같아야하므로 str타입으로 맞춰주기
 
-    ans_list.append(str(lotto_info['bnusNo']))
-
+    ans_bonus = (str(lotto_info['bnusNo']))
+    my_bonus = lotto_numbers[-1]
+    lotto_numbers.pop()
+    print(lotto_numbers)
     
-    ans_list.sort()
+
+    lotto_numbers.sort()
     print('=================================')
     print(ans_list)
     print(lotto_numbers)
     print('=================================')
 
-    ans_num = 0
-
-    for i in ans_list:
-        if i in lotto_numbers:
-            ans_num += 1
+    
+    if len(lotto_numbers) == 6:
+        for i in ans_list:
+            if i in lotto_numbers:
+                ans_num += 1
+    else:
+        ans_num = -1
 
     print(ans_num)
 
     if ans_num == 6:
         rank = 1
-    elif ans_num ==5:
+    elif ans_num ==5 and my_bonus == ans_bonus:
         rank = 2
-    elif ans_num ==4:
+    elif ans_num ==5:
         rank = 3
-    elif ans_num ==3:
+    elif ans_num == 4:
         rank = 4
-    elif ans_num ==2:
+    elif ans_num == 3:
         rank = 5
     else:
         rank = 6
 
     # return f'{lotto_round}, {lotto_numbers}'
-    return render_template('lotto_output.html',rank = rank, ans_num=ans_num, ans_list=ans_list, lotto_numbers=lotto_numbers)
+    return render_template('lotto_output.html',rank = rank, ans_num=ans_num, ans_list=ans_list, lotto_numbers=lotto_numbers, ans_bonus=ans_bonus, my_bonus=my_bonus, lotto_round=lotto_round )
 
 if __name__ == '__main__':
     app.run(debug=True)

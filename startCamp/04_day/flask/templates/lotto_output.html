@@ -7,8 +7,16 @@
         <title>Document</title>
     </head>
     <body>
+        <h1>{{lotto_round}}회차 결과</h1>
+        {% if ans_num == -1 %}
+            <p>올바른 형식으로 입력해주세요</p>
+        {% else %}
             <p>{{ans_num}}개 맞으셨습니다. {{rank}}등입니다.</p>
             <p>내 번호 : {{lotto_numbers}}</p>
             <p>정답 : {{ans_list}}</p>
+            <br />
+            <p>내 보너스 번호 : {{my_bonus}}</p>
+            <p>정답 보너스 번호 : {{ans_bonus}}</p>
+        {% endif %}
     </body>
 </html>
